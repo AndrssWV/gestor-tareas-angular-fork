@@ -1,0 +1,8 @@
+<h2>Gestor de Tareas del Curso</h2>
+
+<div class="contenedor-tareas">
+  <!-- Aquí usamos el componente reutilizable 3 veces iterando el arreglo -->
+  @for (t of misTareas; track t.titulo) {
+    <app-tarjeta-tarea [tarea]="t"></app-tarjeta-tarea>
+  }
+</div>
