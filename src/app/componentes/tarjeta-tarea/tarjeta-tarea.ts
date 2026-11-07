@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
+import { Tarea } from '../../modelos/tarea';
 
 @Component({
   selector: 'app-tarjeta-tarea',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TarjetaTareaComponent {
 
-  @Input() tarea: any; 
+  input = input.required<Tarea>();
 }
