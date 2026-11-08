@@ -1,8 +1,22 @@
-<div class="tarjeta">
-  <h3>{{ tarea().titulo }}</h3>
-  @if (tarea().estado) {
-    <h3>estado: completada</h3>
-  }@else {
-    <h3>estado: pendiente</h3>
+<div class="tarjeta" [class.completada]="tarea().estado">
+  <input
+    type="checkbox"
+    [checked]="tarea().estado"
+    (change)="alternar.emit(tarea())"
+  />
+
+  @if (editando()) {
+    <input
+      #campo
+      [value]="tarea().titulo"
+      (keyup.enter)="guardarEdicion(campo.value)"
+      (keyup.escape)="editando.set(false)"
+    />
+    <button (click)="guardarEdicion(campo.value)">Guardar</button>
+    <button (click)="editando.set(false)">Cancelar</button>
+  } @else {
+    <h3>{{ tarea().titulo }}</h3>
+    <button (click)="editando.set(true)">Editar</button>
+    <button (click)="eliminar.emit(tarea().id)">Eliminar</button>
   }
 </div>

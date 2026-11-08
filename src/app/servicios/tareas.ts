@@ -54,4 +54,13 @@ export class TareasService {
       tap(() => this._tareas.update(lista => lista.filter(t => t.id !== id)))
     );
   }
+
+  alternarCompletada(tarea: Tarea): Observable<Tarea> {
+    return this.actualizar({ ...tarea, estado: !tarea.estado });
+  }
+
+  editarTitulo(tarea: Tarea, titulo: string): Observable<Tarea> {
+    return this.actualizar({ ...tarea, titulo });
+  }
+  
 }

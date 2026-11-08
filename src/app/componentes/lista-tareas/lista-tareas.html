@@ -1,22 +1,35 @@
 <h2>Gestor de Tareas del Curso</h2>
+
 <p>
   Total: {{ tareasService.total() }} ·
   Pendientes: {{ tareasService.pendientes() }} ·
   Completadas: {{ tareasService.completadas() }}
 </p>
-<div class="contenedor-tareas">
+
+<div class="nueva-tarea">
+  <input #nuevo placeholder="Nueva tarea..." (keyup.enter)="agregar(nuevo.value); nuevo.value = ''" />
+  <button (click)="agregar(nuevo.value); nuevo.value = ''">Agregar</button>
+</div>
+
+@if (errorAccion()) {
+  <p class="error">{{ errorAccion() }}</p>
+}
 
 @if (tareasService.cargando()) {
-  <p>Cargando tareas ...</p>
-}@else if (tareasService.error()) {
-  <p class="error">{{tareasService.error()}}</p>
-}@else{
+  <p>Cargando tareas...</p>
+} @else if (tareasService.error()) {
+  <p class="error">{{ tareasService.error() }}</p>
+} @else {
   <div class="contenedor-tareas">
     @for (t of tareasService.tareas(); track t.id) {
-      <app-tarjeta-tarea [tarea]="t" />
+      <app-tarjeta-tarea
+        [tarea]="t"
+        (alternar)="alternar($event)"
+        (guardar)="editar($event)"
+        (eliminar)="eliminar($event)"
+      />
     } @empty {
       <p>No hay tareas todavía.</p>
     }
   </div>
 }
-</div>

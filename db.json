@@ -1,7 +1,26 @@
 {
   "tareas": [
-    { "id": 1, "titulo": "Aprender Angular", "completada": false },
-    { "id": 2, "titulo": "Hacer el commit", "completada": true },
-    { "id": 3, "titulo": "Escribir informe", "completada": false }
+    {
+      "id": 1,
+      "titulo": "Aprender React",
+      "completada": false,
+      "estado": false
+    },
+    {
+      "id": 2,
+      "titulo": "Hacer el commit",
+      "completada": true,
+      "estado": true
+    },
+    {
+      "id": 3,
+      "titulo": "Escribir informe",
+      "completada": false
+    },
+    {
+      "titulo": "Limpiar la casa",
+      "estado": true,
+      "id": 4
+    }
   ]
 }

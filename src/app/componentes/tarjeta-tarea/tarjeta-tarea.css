@@ -11,3 +11,8 @@
 .tarjeta:hover {
   transform: translateY(-5px);
 }
+
+.completada h3 {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
