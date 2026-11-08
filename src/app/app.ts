@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ListaTareasComponent } from './componentes/lista-tareas/lista-tareas'; 
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ListaTareasComponent], 
+  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css' 
+  styleUrl: './app.css'
 })
-export class App { 
+export class App {
   title = 'gestor-tareas';
 }

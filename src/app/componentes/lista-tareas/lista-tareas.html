@@ -6,6 +6,27 @@
   Completadas: {{ tareasService.completadas() }}
 </p>
 
+<div class="btn-group my-3" role="group">
+  <button
+    type="button"
+    class="btn"
+    (click)="filtrar('todo')">
+    Todas ({{ tareasService.tareas().length }})
+  </button>
+  <button
+    type="button"
+    class="btn"
+    (click)="filtrar('pendiente')">
+    Pendientes
+  </button>
+  <button
+    type="button"
+    class="btn"
+    (click)="filtrar('completada')">
+    Hechas
+  </button>
+</div>
+
 <div class="nueva-tarea">
   <input #nuevo placeholder="Nueva tarea..." (keyup.enter)="agregar(nuevo.value); nuevo.value = ''" />
   <button (click)="agregar(nuevo.value); nuevo.value = ''">Agregar</button>
@@ -21,8 +42,9 @@
   <p class="error">{{ tareasService.error() }}</p>
 } @else {
   <div class="contenedor-tareas">
-    @for (t of tareasService.tareas(); track t.id) {
+    @for (t of tareasFiltradas; track t.id) {
       <app-tarjeta-tarea
+        [routerLink]="['/tareas', t.id]"
         [tarea]="t"
         (alternar)="alternar($event)"
         (guardar)="editar($event)"

@@ -8,7 +8,6 @@ export class TareasService {
   private readonly http = inject(HttpClient);
   private readonly url = 'http://localhost:3000/tareas';
 
-  // Estado
   private readonly _tareas = signal<Tarea[]>([]);
   private readonly _cargando = signal(false);
   private readonly _error = signal<string | null>(null);
@@ -62,5 +61,5 @@ export class TareasService {
   editarTitulo(tarea: Tarea, titulo: string): Observable<Tarea> {
     return this.actualizar({ ...tarea, titulo });
   }
-  
+
 }

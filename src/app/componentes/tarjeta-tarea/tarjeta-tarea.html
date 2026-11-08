@@ -1,6 +1,7 @@
 <div class="tarjeta" [class.completada]="tarea().estado">
   <input
     type="checkbox"
+    (click)="$event.stopPropagation();"
     [checked]="tarea().estado"
     (change)="alternar.emit(tarea())"
   />
@@ -9,14 +10,15 @@
     <input
       #campo
       [value]="tarea().titulo"
+      (click)="$event.stopPropagation();"
       (keyup.enter)="guardarEdicion(campo.value)"
       (keyup.escape)="editando.set(false)"
     />
-    <button (click)="guardarEdicion(campo.value)">Guardar</button>
-    <button (click)="editando.set(false)">Cancelar</button>
+    <button (click)="$event.stopPropagation(); guardarEdicion(campo.value)">Guardar</button>
+    <button (click)="$event.stopPropagation(); editando.set(false)">Cancelar</button>
   } @else {
     <h3>{{ tarea().titulo }}</h3>
-    <button (click)="editando.set(true)">Editar</button>
-    <button (click)="eliminar.emit(tarea().id)">Eliminar</button>
+    <button (click)="$event.stopPropagation(); editando.set(true)">Editar</button>
+    <button (click)="$event.stopPropagation(); eliminar.emit(tarea().id)">Eliminar</button>
   }
 </div>
