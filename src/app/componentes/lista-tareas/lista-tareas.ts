@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TarjetaTareaComponent } from '../tarjeta-tarea/tarjeta-tarea';
-import { CommonModule } from '@angular/common';
+import {TareasService} from '../../servicios/tareas';
 
 @Component({
   selector: 'app-lista-tareas',
   standalone: true,
-  imports: [TarjetaTareaComponent, CommonModule],
+  imports: [TarjetaTareaComponent],
   templateUrl: './lista-tareas.html', 
   styleUrl: './lista-tareas.css' // o .scss
 })
 export class ListaTareasComponent {
-  misTareas = [
-    { titulo: 'Aprender Angular', estado: 'Pendiente' },
-    { titulo: 'Hacer el commit', estado: 'Hecha' },
-    { titulo: 'Escribir informe', estado: 'Pendiente' }
-  ];
+    protected readonly tareasService = inject(TareasService);
 }

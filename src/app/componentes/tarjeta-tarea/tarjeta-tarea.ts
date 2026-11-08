@@ -9,5 +9,5 @@ import { Tarea } from '../../modelos/tarea';
 })
 export class TarjetaTareaComponent {
 
-  input = input.required<Tarea>();
+  tarea = input.required<Tarea>();
 }
