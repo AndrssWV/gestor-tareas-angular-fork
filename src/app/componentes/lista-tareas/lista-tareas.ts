@@ -11,4 +11,7 @@ import {TareasService} from '../../servicios/tareas';
 })
 export class ListaTareasComponent {
     protected readonly tareasService = inject(TareasService);
+    ngOnInit():void{
+      this.tareasService.cargar();
+    }
 }

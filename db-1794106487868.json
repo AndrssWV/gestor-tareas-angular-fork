@@ -1,0 +1,19 @@
+{
+  "tareas": [
+    {
+      "id": 1,
+      "titulo": "Aprender Angular",
+      "completada": false
+    },
+    {
+      "id": 2,
+      "titulo": "Hacer el commit",
+      "completada": true
+    },
+    {
+      "id": 3,
+      "titulo": "Escribir informe",
+      "completada": false
+    }
+  ]
+}

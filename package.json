@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api" : "npx json-server@0.17.4 --watch db.json --port 3000"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

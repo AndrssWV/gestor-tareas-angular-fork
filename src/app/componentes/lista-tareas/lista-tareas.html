@@ -5,10 +5,18 @@
   Completadas: {{ tareasService.completadas() }}
 </p>
 <div class="contenedor-tareas">
-  <!-- Aquí usamos el componente reutilizable 3 veces iterando el arreglo -->
-   @for (t of tareasService.tareas(); track t.id) {
-      <app-tarjeta-tarea [tarea] = "t" />
-   } @empty {
-    <p> no hay tareas todavia</p>
-   }
+
+@if (tareasService.cargando()) {
+  <p>Cargando tareas ...</p>
+}@else if (tareasService.error()) {
+  <p class="error">{{tareasService.error()}}</p>
+}@else{
+  <div class="contenedor-tareas">
+    @for (t of tareasService.tareas(); track t.id) {
+      <app-tarjeta-tarea [tarea]="t" />
+    } @empty {
+      <p>No hay tareas todavía.</p>
+    }
+  </div>
+}
 </div>
