@@ -6,7 +6,7 @@ import { Tarea } from '../modelos/tarea';
 @Injectable({ providedIn: 'root' })
 export class TareasService {
   private readonly http = inject(HttpClient);
-  private readonly url = 'http://localhost:3000/tareas';
+  private readonly url = 'https://gestor-tareas-api-020f.onrender.com/tareas';
 
   private readonly _tareas = signal<Tarea[]>([]);
   private readonly _cargando = signal(false);
